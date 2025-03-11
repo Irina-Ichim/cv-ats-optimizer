@@ -1,0 +1,267 @@
+/* ats-styles.css */
+
+/* Estilos específicos para la plantilla ATS */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  .ats-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+  
+  .ats-header {
+    margin-bottom: 20px;
+  }
+  
+  .ats-name {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .ats-title {
+    font-size: 18px;
+    margin: 5px 0 15px 0;
+    color: #555;
+  }
+  
+  .ats-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .ats-contact div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Encabezados de sección - nombres estándar para ATS */
+  .section-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+    margin: 25px 0 15px 0;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .ats-profile {
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  /* Sección de habilidades técnicas */
+  .ats-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .skill-item {
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  /* Experiencia y educación */
+  .experience-item, .education-item {
+    margin-bottom: 20px;
+  }
+  
+  .item-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #222;
+  }
+  
+  .item-subtitle {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .item-date {
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .item-description {
+    margin-top: 8px;
+  }
+  
+  .item-description ul {
+    margin: 5px 0 0 0;
+    padding-left: 20px;
+  }
+  
+  .item-description li {
+    margin-bottom: 5px;
+  }
+  
+  /* Palabras clave para ATS */
+  .keywords-section {
+    margin-bottom: 25px;
+  }
+  
+  .keywords-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .keyword-pill {
+    background: #e9f5ff;
+    color: #0066cc;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .remove-keyword {
+    background: none;
+    border: none;
+    color: #0066cc;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 3px;
+  }
+  
+  .remove-keyword:hover {
+    color: #004c99;
+  }
+  
+  /* Selector de plantilla */
+  .template-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .template-switcher select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .download-btn:hover {
+    background: #0055aa;
+  }
+  
+  /* Sección específica para entrada de palabras clave */
+  .keyword-input-section {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    align-items: center;
+  }
+  
+  .keyword-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .add-keyword-btn {
+    padding: 8px 12px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .ats-tips {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+    border-left: 3px solid #0066cc;
+  }
+  
+  .ats-tips h4 {
+    margin-top: 0;
+    color: #0066cc;
+  }
+  
+  .ats-tips ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+  }
+  
+  .ats-tips li {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .ats-container {
+      padding: 15px;
+      margin: 10px;
+    }
+    
+    .ats-contact {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .item-subtitle {
+      flex-direction: column;
+    }
+    
+    .template-switcher {
+      position: static;
+      margin: 10px 0;
+    }
+  }

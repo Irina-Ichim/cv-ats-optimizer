@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV optimizado para ATS</title>
+  <style>
+    /* Estilos generales - optimizados para ATS */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    
+    .ats-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+    
+    .ats-header {
+      margin-bottom: 20px;
+    }
+    
+    .ats-name {
+      font-size: 24px;
+      margin: 0;
+      font-weight: bold;
+    }
+    
+    .ats-title {
+      font-size: 18px;
+      margin: 5px 0 15px 0;
+      color: #555;
+    }
+    
+    .ats-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    
+    .ats-contact div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .section-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+      margin: 25px 0 15px 0;
+    }
+    
+    .ats-profile {
+      margin-bottom: 25px;
+    }
+    
+    .ats-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .skill-item {
+      background: #f1f1f1;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    
+    .experience-item, .education-item {
+      margin-bottom: 20px;
+    }
+    
+    .item-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .item-subtitle {
+      display: flex;
+      justify-content: space-between;
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    
+    .item-date {
+      color: #777;
+      font-size: 14px;
+    }
+    
+    .item-description {
+      margin-top: 8px;
+    }
+    
+    .keywords-section {
+      margin-bottom: 25px;
+    }
+    
+    .keywords-title {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .keyword-pill {
+      background: #e9f5ff;
+      color: #0066cc;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 14px;
+    }
+    
+    /* Template switcher styles */
+    .template-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    
+    .template-switcher select {
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="template-switcher">
+    <label for="template-select">Plantilla de CV:</label>
+    <select id="template-select" onchange="switchTemplate()">
+      <option value="original">Original</option>
+      <option value="ats" selected>Optimizado para ATS</option>
+    </select>
+    <button class="download-btn" onclick="downloadCV()">Descargar PDF</button>
+  </div>
+
+  <div class="ats-container" id="ats-template">
+    <div class="ats-header">
+      <h1 class="ats-name" id="ats-name">Tu Nombre Completo</h1>
+      <h2 class="ats-title" id="ats-profession">Desarrollador Web</h2>
+      
+      <div class="ats-contact">
+        <div>
+          <i class="fa-solid fa-location-dot"></i>
+          <span id="ats-city">Tu Ciudad</span>
+        </div>
+        <div>
+          <i class="fas fa-phone"></i>
+          <span id="ats-phone">+34 600 000 000</span>
+        </div>
+        <div>
+          <i class="fas fa-envelope"></i>
+          <span id="ats-email">tu@email.com</span>
+        </div>
+        <div id="ats-optional-contacts"></div>
+      </div>
+    </div>
+    
+    <div class="ats-profile">
+      <h3 class="section-title">PERFIL PROFESIONAL</h3>
+      <p id="ats-profile-text">Desarrollador Web con experiencia en creación de aplicaciones escalables y responsivas. Especializado en HTML5, CSS3, JavaScript y frameworks modernos. Comprometido con la entrega de código limpio y bien documentado.</p>
+    </div>
+    
+    <div class="keywords-section">
+      <h3 class="section-title">COMPETENCIAS CLAVE</h3>
+      <div class="keywords-list" id="ats-keywords">
+        <span class="keyword-pill">HTML5</span>
+        <span class="keyword-pill">CSS3</span>
+        <span class="keyword-pill">JavaScript</span>
+        <span class="keyword-pill">React</span>
+        <span class="keyword-pill">Node.js</span>
+        <span class="keyword-pill">Responsive Design</span>
+        <span class="keyword-pill">UI/UX</span>
+      </div>
+    </div>
+    
+    <div class="ats-experience">
+      <h3 class="section-title">EXPERIENCIA PROFESIONAL</h3>
+      <div id="ats-experience-list">
+        <div class="experience-item">
+          <div class="item-title">Desarrollador Frontend Senior</div>
+          <div class="item-subtitle">
+            <span>Empresa Digital S.L.</span>
+            <span class="item-date">Enero 2020 - Presente</span>
+          </div>
+          <div class="item-description">
+            <ul>
+              <li>Desarrollo de interfaces de usuario para aplicaciones web y móviles.</li>
+              <li>Implementación de diseños responsivos y accesibles.</li>
+              <li>Colaboración con equipos de UX/UI y backend para entrega de productos de alta calidad.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ats-education">
+      <h3 class="section-title">EDUCACIÓN</h3>
+      <div id="ats-education-list">
+        <div class="education-item">
+          <div class="item-title">Grado en Ingeniería Informática</div>
+          <div class="item-subtitle">
+            <span>Universidad Autónoma</span>
+            <span class="item-date">2015 - 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ats-technical-skills">
+      <h3 class="section-title">HABILIDADES TÉCNICAS</h3>
+      <div class="ats-skills" id="ats-skills-list">
+        <span class="skill-item">HTML5</span>
+        <span class="skill-item">CSS3</span>
+        <span class="skill-item">JavaScript (ES6+)</span>
+        <span class="skill-item">React</span>
+        <span class="skill-item">Node.js</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">Webpack</span>
+        <span class="skill-item">SASS/LESS</span>
+        <span class="skill-item">Testing (Jest, Cypress)</span>
+      </div>
+    </div>
+    
+    <div class="ats-languages">
+      <h3 class="section-title">IDIOMAS</h3>
+      <div id="ats-languages-list">
+        <div class="language-item">
+          <span>Español</span> - <span>Nativo</span>
+        </div>
+        <div class="language-item">
+          <span>Inglés</span> - <span>Avanzado (C1)</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ats-additional">
+      <h3 class="section-title">INFORMACIÓN ADICIONAL</h3>
+      <div id="ats-additional-list">
+        <p>Disponibilidad para viajar y trabajar en remoto.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Función para cambiar entre plantillas
+    function switchTemplate() {
+      const templateType = document.getElementById('template-select').value;
+      
+      if (templateType === 'original') {
+        // Redirigir a la plantilla original
+        window.location.href = 'index.html';
+      } else {
+        // Ya estamos en la plantilla ATS, no hacer nada
+      }
+    }
+    
+    // Función para sincronizar datos del formulario principal (si existe)
+    function syncFromMainForm() {
+      // Intentar obtener datos del localStorage (si fueron guardados por el formulario principal)
+      const storedData = localStorage.getItem('resumeData');
+      
+      if (storedData) {
+        const data = JSON.parse(storedData);
+        
+        // Actualizar campos con datos guardados
+        document.getElementById('ats-name').textContent = data.fullName || 'Tu Nombre Completo';
+        document.getElementById('ats-profession').textContent = data.profession || 'Desarrollador Web';
+        document.getElementById('ats-profile-text').textContent = data.profile || 'Tu perfil profesional...';
+        document.getElementById('ats-city').textContent = data.city || 'Tu Ciudad';
+        document.getElementById('ats-phone').textContent = data.phone || '+34 600 000 000';
+        document.getElementById('ats-email').textContent = data.email || 'tu@email.com';
+        
+        // Actualizar experiencia, educación, etc. si existen en los datos
+        if (data.experience && data.experience.length > 0) {
+          updateExperienceList(data.experience);
+        }
+        
+        if (data.education && data.education.length > 0) {
+          updateEducationList(data.education);
+        }
+        
+        if (data.skills && data.skills.length > 0) {
+          updateSkillsList(data.skills);
+        }
+        
+        if (data.languages && data.languages.length > 0) {
+          updateLanguagesList(data.languages);
+        }
+        
+        if (data.additionalInfo && data.additionalInfo.length > 0) {
+          updateAdditionalInfo(data.additionalInfo);
+        }
+      }
+    }
+    
+    // Funciones para actualizar las listas en la plantilla ATS
+    function updateExperienceList(experiences) {
+      const container = document.getElementById('ats-experience-list');
+      container.innerHTML = '';
+      
+      experiences.forEach(exp => {
+        const item = document.createElement('div');
+        item.className = 'experience-item';
+        
+        item.innerHTML = `
+          <div class="item-title">${exp.position || ''}</div>
+          <div class="item-subtitle">
+            <span>${exp.company || ''}</span>
+            <span class="item-date">${exp.startDate || ''} - ${exp.endDate || 'Presente'}</span>
+          </div>
+          <div class="item-description">
+            <p>${exp.description || ''}</p>
+          </div>
+        `;
+        
+        container.appendChild(item);
+      });
+    }
+    
+    function updateEducationList(educations) {
+      const container = document.getElementById('ats-education-list');
+      container.innerHTML = '';
+      
+      educations.forEach(edu => {
+        const item = document.createElement('div');
+        item.className = 'education-item';
+        
+        item.innerHTML = `
+          <div class="item-title">${edu.degree || ''}</div>
+          <div class="item-subtitle">
+            <span>${edu.institution || ''}</span>
+            <span class="item-date">${edu.startDate || ''} - ${edu.endDate || ''}</span>
+          </div>
+        `;
+        
+        container.appendChild(item);
+      });
+    }
+    
+    function updateSkillsList(skills) {
+      const container = document.getElementById('ats-skills-list');
+      container.innerHTML = '';
+      
+      skills.forEach(skill => {
+        const item = document.createElement('span');
+        item.className = 'skill-item';
+        item.textContent = skill.name || '';
+        container.appendChild(item);
+      });
+    }
+    
+    function updateLanguagesList(languages) {
+      const container = document.getElementById('ats-languages-list');
+      container.innerHTML = '';
+      
+      languages.forEach(lang => {
+        const item = document.createElement('div');
+        item.className = 'language-item';
+        item.innerHTML = `<span>${lang.name || ''}</span> - <span>${lang.level || ''}</span>`;
+        container.appendChild(item);
+      });
+    }
+    
+    function updateAdditionalInfo(infoItems) {
+      const container = document.getElementById('ats-additional-list');
+      container.innerHTML = '';
+      
+      infoItems.forEach(info => {
+        const item = document.createElement('p');
+        item.textContent = info.text || '';
+        container.appendChild(item);
+      });
+    }
+    
+    // Función para descargar como PDF
+    function downloadCV() {
+      alert('Funcionalidad de descarga: Implementar con html2canvas y jsPDF');
+      // Esta funcionalidad se implementaría con las librerías que ya tienes incluidas en tu proyecto
+    }
+    
+    // Inicializar la plantilla
+    document.addEventListener('DOMContentLoaded', function() {
+      syncFromMainForm();
+    });
+  </script>
+</body>
+</html>
